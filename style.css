@@ -1,0 +1,301 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+:root {
+  font-size: 62.5%;
+
+  --hue: 240;
+  --var-base-color-black-700: hsl(var(--hue), 6%, 13%);
+  --var-base-color-black-400: hsl(var(--hue), 5%, 7%);
+  --var-base-color-dark-blue: hsl(195, 91%, 25%);
+  font-family: 'Mulish', sans-serif;
+}
+
+
+body {
+  display: grid;
+  grid-template-areas: 
+  "header"
+  "main"
+  "footer";
+  grid-template-rows: max-content 1fr max-content;
+
+  justify-content: center;
+  align-items: center;
+}
+
+
+header {
+  background-color: var(--var-base-color-dark-blue);
+
+  width: 43rem;
+  height: 7.2rem;
+  padding: 1.2rem 2.8rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  justify-content: space-between;
+  
+  grid-area: header;
+
+  --startY: -100%;
+  animation: move .2s;
+
+
+} 
+
+.input-wrapper input {
+  background: rgba(255, 255, 255, 0.20);
+  padding: 1.2rem 1.6rem;
+  width: 100%;
+  line-height: 100%;
+
+  color: #FFFFFF;
+  border-radius: .4rem;
+  border: 0;
+
+  font-size: 16px;
+  font-weight: 600;
+
+}
+
+.input-wrapper label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+header input::placeholder {
+  color: #FFFFFF;
+}
+
+#avatar {
+  width: 4.2rem;
+  height: 4.2rem;
+
+  border-radius: 999rem;
+
+}
+
+#cat {
+
+  width: 43rem;
+  height: 20rem;
+
+  margin-bottom: 3rem;
+
+}
+
+
+
+.container, footer {
+  width: 43rem;
+}
+
+
+main {
+  grid-area: main;
+}
+
+.titulo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+}
+
+main h1 {
+  color: var(--var-base-color-black-700);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 160%;
+  width: 100%;
+  margin: 0 6.6rem 0 2.2rem;
+}
+
+.reaction {
+  display: flex;
+  gap: 1.2rem;
+  margin-left: 2.2rem;
+}
+
+.reaction button {
+  background: var(--var-base-color-dark-blue);
+
+  border-radius:99.9rem;
+  border: none;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.reaction button img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+
+main p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 160%;
+
+  width: 38rem;
+  margin: 3.2rem 2.2rem 3.4rem;
+  color: var(--var-base-color-black-400);
+
+}
+
+section h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--var-base-color-black-700);
+
+  margin-bottom: 3.2rem;
+}
+
+section .item {
+  display: flex;
+  gap: 1.6rem;
+
+  margin: 0 2.6rem 3.2rem 2.2rem;
+
+  align-items: center;
+}
+
+.item img {
+  width: 15rem;
+  height: 8.4rem;
+  border-radius: 0.5rem;
+
+  object-fit: cover;
+
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-delay: 0;
+  transition-timing-function: ease-out;
+}
+
+.item img:hover {
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+  transform: scale(1.1) rotate(-2deg);
+}
+
+section figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+
+}
+
+section figcaption h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 160%;
+  color: var(--var-base-color-black-700);
+}
+
+section figcaption p {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 160%;
+  color: var(--var-base-color-black-400);
+
+  width: 22rem;
+}
+
+footer {
+  grid-area: footer;
+  background: #387E96;
+  color: #FFFFFF;
+  width: 43rem;
+  height: 6.4rem;
+  padding: 1.6rem;
+
+  font-size: 1.6rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+
+  animation: move .2s;
+  --startY: 100%;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(var(--startY));
+  }
+
+  100% {
+
+  }
+
+}
+
+@media (min-width: 728px) {
+
+  body {
+    justify-items: center;
+  }
+
+  header {
+    width: 100vw;
+    margin-bottom: 6rem;
+  }
+  .input-wrapper, footer {
+    width: 100%;
+  }
+  #cat {
+    width: 80rem;
+    height: 40rem;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    gap: 3.4rem;
+  }
+
+  main {
+    width: 80rem;
+  }
+
+  .titulo {
+    flex-direction: row;
+    gap: 34rem;
+    width: 100%;
+  }
+
+  main h1 {
+    margin: 0;
+    }
+
+  main p {
+    width: 80rem;
+  }
+
+  span:nth-child(1)::before{
+    content:"\a";
+    white-space:pre;
+  }
+
+  span:nth-child(2)::before{
+    content: "\a\a";
+    white-space: pre;
+  }
+
+
+}
